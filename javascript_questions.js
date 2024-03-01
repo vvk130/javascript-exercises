@@ -20,6 +20,13 @@ const user = {
 
 // Q: How to access the property?
 
-console.log();
+console.log(user["like this video"]);
 
-// delete a property
+// Q: How to delete a property
+
+delete user["like this video"];
+
+
+// Event Bubbling
+
+// Currying

@@ -107,6 +107,36 @@ const obj = JSON.stringify(user);
 localStorage.setItem("objInLocalStorage", obj);
 console.log(JSON.parse(localStorage.getItem("test")))
 
+// Q: What does this print? 
+
+console.log([..."Lydia"]);
+
+// A: 
+// [ 'L', 'y', 'd', 'i', 'a' ]
+
+// Q: What does this print? 
+
+const user = {name: "Lydia", age: 21};
+const user = {admin: true, ...user};
+
+console.log(admin);
+
+// A:{admin: true, name: "Lydia", age: 21}
+
+// Q; What is the output? 
+
+const settings = {
+    username: "Piyush",
+    level: 19,
+    health: 90,
+}
+
+const obj = JSON.stringify(settings, ["level", "health"]);
+console.log(obj);
+
+// Q: output level and health keys and values
+
+
 // Event Bubbling
 
 // Event Capturing

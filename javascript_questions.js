@@ -204,9 +204,13 @@ function getItems(fruitList, favFruit, ...args){
     return [...fruitList, ...args, favoriteFruit];
 }
 
-getItems(["banana", "apple"], "pear", "orange");
+console.log(getItems(["banana", "apple"], "pear", "orange"));
 
-// A: 
+// A: prints out the fruit
+
+// Object referencing
+
+
 
 // Event Bubbling
 

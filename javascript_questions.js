@@ -48,9 +48,27 @@ for (key in user) {
     console.log(user[key]);
 }
 
-// Q: What will 
+// Q: What will this print? 
+
+const user = {
+    name: "Roadside Coder",
+    age: 24,
+    name: "Ellie",
+}
+
+console.log(user);
+
+// A: { name: 'Ellie', age: 24 }
 
 // Event Bubbling
+
+// Event Capturing
+
+// Var vs let
+
+// Arguments keyword
+
+// Time optimization
 
 // Currying
 
@@ -61,3 +79,8 @@ for (key in user) {
 // Lexical scope
 
 // IIFE Functions
+
+// Debouncing 
+
+// Throttling
+

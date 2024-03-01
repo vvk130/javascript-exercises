@@ -134,8 +134,25 @@ const settings = {
 const obj = JSON.stringify(settings, ["level", "health"]);
 console.log(obj);
 
-// Q: output level and health keys and values
+// A: output level and health keys and values
 
+// Q: What's the output? 
+
+const shape = {
+    radius: 10,
+    diameter() {
+        retutn this.radius * 2;
+    },
+    perimeter: () => 2 * Math.PI * this.radius,
+};
+
+console.log(shape.diameter());
+console.log(shape.perimeter());
+
+// A: this in arrowfunction refers to the window object, 
+// so the shape.perimeter will prin out NaN
+
+// Q:
 
 // Event Bubbling
 

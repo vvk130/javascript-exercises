@@ -71,22 +71,29 @@ let nums = {
 
 //A:
 
-function multiplyByTwo(obj){
-    for (key in obj){
-        if (Number(obj[key])) obj[key] = obj[key] * 2; 
-    }
-}
+// function multiplyByTwo(obj){
+//     for (key in obj){
+//         if (Number(obj[key])) obj[key] = obj[key] * 2; 
+//     }
+// }
 
-multiplyByTwo(nums);
-console.log(nums);
+// Q: What is output of following code? 
 
-function multiplyByTwo(obj){
-    for (key in user){
-        if (Number(user[key])) user[key] = user[key] * 2; 
-    }
-}
+const a = {};
+const b = { key: "b" };
+const c = { key: "c" }; 
 
-// Q: 
+a[b] = 123;
+a[c] = 456;
+
+consolelog(a[b]);
+
+// A: 
+
+// Code doesn't compile, because adding an object tries to add [Object object] 
+// and that cannot be the key
+
+// Q:
 
 // Event Bubbling
 

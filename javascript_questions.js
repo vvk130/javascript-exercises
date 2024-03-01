@@ -224,7 +224,8 @@ console.log(d.greeting);
 console.log({ a: 1} == { a : 1});
 console.log({ a: 1} === { a : 1});
 
-// A: Javascript compares objects by reference and not value, so the second is always false
+// A: Javascript compares objects by reference and not value
+// so both are always false
 
 // Event Bubbling
 

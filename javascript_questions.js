@@ -26,7 +26,38 @@ console.log(user["like this video"]);
 
 delete user["like this video"];
 
+// Q: How to add a property outside the object declaration?
+
+const property = "firstName";
+
+const user = {
+    [property]: "Matti",
+} 
+
+console.log(user["firstName"]);
+
+// Q: Looping through an object
+
+const user = {
+    name: "Roadside Coder",
+    age: 24,
+    "like this video": true,
+}
+
+for (key in user) {
+    console.log(user[key]);
+}
+
+// Q: What will 
 
 // Event Bubbling
 
 // Currying
+
+// Rest vs spread operator
+
+// Can rest operator be first
+
+// Lexical scope
+
+// IIFE Functions

@@ -89,11 +89,23 @@ a[c] = 456;
 consolelog(a[b]);
 
 // A: 
-
 // Code doesn't compile, because adding an object tries to add [Object object] 
 // and that cannot be the key
 
-// Q:
+// Q: What is JSON.strigify and JSON.parse?
+
+// A: Makes JSON data to a string or makes content to JSON data
+
+// Parse: Converts a JavaScript Object Notation (JSON) string into an object.
+// Stringify: Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+
+// Q: How to set an item in localStorage? 
+
+// A: 
+
+const obj = JSON.stringify(user);
+localStorage.setItem("objInLocalStorage", obj);
+console.log(JSON.parse(localStorage.getItem("test")))
 
 // Event Bubbling
 

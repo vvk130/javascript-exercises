@@ -152,7 +152,61 @@ console.log(shape.perimeter());
 // A: this in arrowfunction refers to the window object, 
 // so the shape.perimeter will prin out NaN
 
-// Q:
+// Q: What is destructuring in objects?
+
+let user = {
+    name: "Piysh",
+    age: 24,
+}
+
+const name = "Roadside Coder"; 
+
+const { name: myName } = user;
+
+console.log(name); //Roadside Coder
+console.log(myName); // Piysh
+
+// Another example nested object
+
+
+let user = {
+    name: "Matti",
+    age: 24,
+    fullName : {
+        first: "Matti",
+        last: "Teppo",
+    }
+}
+
+const {
+    fullName: {first},
+} = user; 
+
+console.log(first);
+
+// This line essentially means "extract the first property from 
+// the fullName object inside the user object and store it in a variable named first".
+// so the output is Matti
+ 
+//Q: What will this print?
+
+function getItems(fruitList, favFruit, ...args){
+    return [...fruitList, ...args, favoriteFruit];
+}
+
+getItems(["banana", "apple"], "pear", "orange");
+
+//A: rest operator cannot be last so it gives an error
+
+//Q: What will this print? 
+
+function getItems(fruitList, favFruit, ...args){
+    return [...fruitList, ...args, favoriteFruit];
+}
+
+getItems(["banana", "apple"], "pear", "orange");
+
+//A: 
 
 // Event Bubbling
 

@@ -208,9 +208,23 @@ console.log(getItems(["banana", "apple"], "pear", "orange"));
 
 // A: prints out the fruit
 
-// Object referencing
+// Q: Object referencing
 
+let c = { greeting: "Hey"};
+let d;
 
+d = c;
+c.greeting = "Hello";
+console.log(d.greeting);
+
+// A: output, assignment doesn't copy the properties, output is Hey
+
+// Q: What is the output?
+
+console.log({ a: 1} == { a : 1});
+console.log({ a: 1} === { a : 1});
+
+// A: Javascript compares objects by reference and not value, so the second is always false
 
 // Event Bubbling
 

@@ -60,6 +60,34 @@ console.log(user);
 
 // A: { name: 'Ellie', age: 24 }
 
+// Q: Create a function multiplyByTwo(obj) that multiplies all numeric property values
+// of nums by 2
+
+let nums = {
+    a: 100,
+    b: 200,
+    title: "My nums",
+}
+
+//A:
+
+function multiplyByTwo(obj){
+    for (key in obj){
+        if (Number(obj[key])) obj[key] = obj[key] * 2; 
+    }
+}
+
+multiplyByTwo(nums);
+console.log(nums);
+
+function multiplyByTwo(obj){
+    for (key in user){
+        if (Number(user[key])) user[key] = user[key] * 2; 
+    }
+}
+
+// Q: 
+
 // Event Bubbling
 
 // Event Capturing

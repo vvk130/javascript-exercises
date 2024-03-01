@@ -190,13 +190,13 @@ console.log(first);
  
 //Q: What will this print?
 
-function getItems(fruitList, favFruit, ...args){
+function getItems(fruitList, ...args, favFruit){
     return [...fruitList, ...args, favoriteFruit];
 }
 
 getItems(["banana", "apple"], "pear", "orange");
 
-//A: rest operator cannot be last so it gives an error
+//A: rest operator needs to be last so it gives an error
 
 //Q: What will this print? 
 
@@ -206,7 +206,7 @@ function getItems(fruitList, favFruit, ...args){
 
 getItems(["banana", "apple"], "pear", "orange");
 
-//A: 
+// A: 
 
 // Event Bubbling
 

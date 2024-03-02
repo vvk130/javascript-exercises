@@ -238,8 +238,7 @@ console.log(members);
 // prints out the object, it did npt set to null 
 // since it was not set as a value of a property
 
-
-// Object.freeze and Object.seal
+// Object.freeze and Object.seal?
 
 // Event Bubbling
 
@@ -256,8 +255,6 @@ console.log(members);
 // Rest vs spread operator
 
 // Can rest operator be first
-
-// Lexical scope
 
 // IIFE Functions
 

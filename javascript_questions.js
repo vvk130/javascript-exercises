@@ -227,6 +227,20 @@ console.log({ a: 1} === { a : 1});
 // A: Javascript compares objects by reference and not value
 // so both are always false
 
+// Q: Output?
+
+let person = {name: "Lydia"};
+const members = [person];
+person = null; //person.name = null;
+
+console.log(members);
+
+// prints out the object, it did npt set to null 
+// since it was not set as a value of a property
+
+
+// Object.freeze and Object.seal
+
 // Event Bubbling
 
 // Event Capturing

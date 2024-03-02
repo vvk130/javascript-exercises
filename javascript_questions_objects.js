@@ -235,6 +235,69 @@ person = null; //person.name = null;
 
 console.log(members);
 
+//Q: Output?
+
+const value = { number: 10 };
+
+const multiply = (x = {...value}) => {
+    console.log((x.number *= 2));
+}
+
+multiply(); 
+multiply();
+multiply(value);
+multiply(value);
+
+// A: 
+// 20
+// 20
+// 20 --> modifies value x multiply(value);
+// 40
+
+// Q: What's the output?
+
+function changeAgeAndReference(person){
+    person.age = 25;
+    person = {
+        name: "",
+        age: "",
+    };
+    return person;
+}
+
+const personObj1 = {
+    name: "Alex",
+    age: 30
+};
+
+console.log:
+personObj2, personObj1
+
+// A: assigning the whole object, doesn't change the original
+// obj1: Alex, 25
+// obj2: John, 50
+
+//Q: Explain shallow and deep copy
+//A: Shallow copy contains reference to parts of the original object, deep copy is cloned and reference free
+
+// Making a clone
+
+const obj = {...originalObj};
+// REMEMBER Now, what a spread operator does? It deep copies the data if it is not nested. 
+// For nested data, it deeply copies the topmost data and shallow copies of the nested data.
+//or
+const obj = Object.assign({}, originalObj);
+//or
+const clonedObject = JSON.parse(JSON.stringify(originalObject));
+
+// SHALLOW COPY
+const obj = [...objOriginal];
+Object.create();
+Array.from();
+
+
+
+
 // prints out the object, it did npt set to null 
 // since it was not set as a value of a property
 

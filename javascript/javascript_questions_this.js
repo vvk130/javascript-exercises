@@ -50,3 +50,45 @@ function makeUser() {
 
 let user = makeUser();
 console.log(user.ref.name);
+
+//Q: Output?
+
+const user = {
+  name: "Ninni",
+  logMessage() {
+    console.log(this.name);
+  },
+};
+
+setTimeout(user.logMessage, 1000);
+
+//A: Undefined, because inside setTimeout, doesnt have access to the name property
+// It accesses the window object
+
+setTimeout(function () {
+  user.logMessage;
+}, 1000);
+
+// A: How to make it work
+
+//Q: output?
+
+const user = {
+  name: "Ninni",
+  greet() {
+    return `Hello ${this.name}!`;
+  },
+  bye: () => {
+    return this.name;
+  },
+};
+
+console.log(user.greet());
+
+console.log(user.bye());
+
+//A: First prints Hello Ninni, second undefined
+
+//Q: Create on object calculator
+
+let calculator = 

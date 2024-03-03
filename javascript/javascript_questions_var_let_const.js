@@ -13,7 +13,7 @@ function test() {
 //A: yes with var, but not with let
 
 //Q: Declaring value without initilization?
-//A: okay witht var and let, not with const
+//A: okay with var and let, not with const
 
 //Hoisting
 

@@ -154,5 +154,23 @@ f = f.bind({name: "John"}).bind({name: "Ann"});
 f();
 
 // A: the other bind is ignored, output John
+// Q: Fix the code line to make the code run? 
 
-function checkPassword(success, failed)
+function checkPassword(success, failed){
+    let password = promt("Password?", "");
+    if (password == "Roadside Coder") success();
+    else failed();
+}
+
+let user ={
+    name: "Martti Korhonen",
+    loginSuccessful(){
+        console.log(`${this.name} failed to log in`)
+    }
+}
+
+checkPassword(user.loginSuccessful, user.loginFailed); // Fix this line
+
+// A:
+
+checkPassword(user.loginSuccessful.bind(), user.loginFailed.bind()); 

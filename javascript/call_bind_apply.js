@@ -165,6 +165,9 @@ function checkPassword(success, failed){
 let user ={
     name: "Martti Korhonen",
     loginSuccessful(){
+        console.log(`${this.name} logged in`)
+    },
+    loginFailed(){
         console.log(`${this.name} failed to log in`)
     }
 }
@@ -173,4 +176,61 @@ checkPassword(user.loginSuccessful, user.loginFailed); // Fix this line
 
 // A:
 
-checkPassword(user.loginSuccessful.bind(), user.loginFailed.bind()); 
+checkPassword(user.loginSuccessful.bind(user), user.loginFailed.bind(user));
+
+// Q: Partial application for login function
+
+function checkPassword(ok, fail){
+    let password = promt("Password?", "");
+    if (password == "Roadside Coder") ok();
+    else fail();
+}
+
+let user ={
+    name: "Martti Korhonen",
+    login(result){
+        console.log(this.name + (result ? "login successful" : "login false");
+    }
+}
+
+checkPassword(user.login.bind(user, true), user.login.bind(user, false));
+
+// Q; Explicit binding with Arrow function
+// Output?
+
+const age = 10;
+
+var person = {
+    name: "Piyush",
+    age: 20,
+    getAgeArrow: () => console.log(this.age),
+    getAge: function() {
+        console.log(this.age);
+    },
+};
+
+var person2 = { age: 24 };
+
+person.getAgeArrow.call(person2);
+person.getAge.call(person2);
+
+
+//A: 
+
+person.getAgeArrow.call(person2);// undefined
+person.getAge.call(person2); // 24
+
+// Q: Polyfill for Call Method (Check the last 3: polyfills)
+
+let car1 = {
+    color: "Red",
+    company: "Ferrari",
+};
+
+function purchaseCar(currency, price){
+    console.log(
+        `I have purchased ${this.color} - ${this.company} for ${price} ${currency}`
+    );
+}
+
+purchaseCar.call(car1, "t", 500000);

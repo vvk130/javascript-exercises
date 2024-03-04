@@ -1,0 +1,34 @@
+.NET
+
+-CLR (Common Language Runtime)
+-Class library
+
+**C# benefits**
+-C# is cross-platform
+
+**Real numbers**
+
+You have to add the type after using a real number
+Default type for real numbers is double
+
+float number = 1.2f;
+decimal number = 1.2m; 
+
+**Overflowing**
+
+-C# doesn't automatically check for overflowing
+
+byte number = 255;
+number = number + 1;//0
+
+-You have to check to prevent overflow, this will throw an error 
+
+checked 
+{
+    byte number = 255;
+    number = number + 1;
+}
+
+- Other way: to use other type than byte
+
+**Scope**

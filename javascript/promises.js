@@ -123,3 +123,186 @@ console.log("end");
 
 //A:
 // start, 1, 3, end, 2
+
+//Q: Output?
+
+console.log("start");
+
+const promise1 = new Promise((resolve, reject) => {
+  console.log(1);
+  console.log(3);
+});
+
+promise1.then((res) => {
+  console.log(res);
+});
+
+console.log("end");
+
+// A:
+// start, 1, 3, end (hops over console.log(res))
+
+//Q: Output?
+
+console.log("start");
+
+const fn = () =>
+  new Promise((resolve, reject) => {
+    console.log(1);
+    resolve("success");
+  });
+
+console.log("middle");
+
+fn().then((res) => {
+  console.log(res);
+});
+
+console.log("end");
+
+//A: start, middle, 1, end, success
+
+// Q: output? (34:00)
+
+function job() {
+  return new Promise(function (resolve, reject) {
+    reject();
+  });
+}
+
+let promise = job();
+
+promise
+  .then(function () {
+    console.log("Success 1");
+  })
+  .then(function () {
+    console.log("Success 2");
+  })
+  .then(function () {
+    console.log("Success 3");
+  })
+  .catch(function () {
+    console.log("Error 1");
+  })
+  .then(function () {
+    console.log("Success 4");
+  });
+
+//A:
+// Error 1, Success 4
+
+// Q: Output?
+
+function job(state) {
+  return new Promise(function (resolve, reject) {
+    if (state) {
+      resolve("success");
+    } else {
+      reject("error");
+    }
+  });
+}
+
+let promise = job(true);
+
+promise
+  .then(function (data) {
+    console.log(data);
+    return job(false);
+  })
+  .catch(function (error) {
+    console.log(error);
+    return "error caught";
+  })
+  .then(function (data) {
+    console.log(data);
+    return job(true);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+//A:
+// success
+// error
+// Error caught
+
+// Q: What's the output?
+
+function job(state) {
+  return new Promise(function (resolve, reject) {
+    if (state) {
+      resolve("success");
+    } else {
+      reject("error");
+    }
+  });
+}
+
+let promise = job(true);
+
+promise
+  .then(function (data) {
+    console.log(data);
+    return job(true);
+  })
+  .then(function (data) {
+    if (data !== "victory") {
+      throw "Defeat";
+    }
+    return job(true);
+  })
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (error) {
+    console.log(error);
+    return job(false);
+  })
+  .then(function (data) {
+    console.log(data);
+    return job(true);
+  })
+  .catch(function (error) {
+    console.log(error);
+    return "Error caught";
+  })
+  .then(function (data) {
+    console.log(data);
+    return new Error("test");
+  })
+  .then(function (data) {
+    console.log(data);
+  });
+
+//A: success
+// success
+// Defeat
+// error
+// Error caught
+// ERROR!
+// Error: test
+
+//Q: output?
+
+const firstPromise = new Promise((resolve, reject) => {
+  resolve("First!");
+});
+
+const secondPromise = new Promise((resolve, reject) => {
+  resolve(firstPromise);
+});
+
+secondPromise
+  .then((res) => {
+    return res;
+  })
+  .then((res) => console.log(res));
+
+//A:
+// First!
+
+//Q: Rewrite using async await:
+
+//A:

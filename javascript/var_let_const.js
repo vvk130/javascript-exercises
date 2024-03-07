@@ -20,3 +20,61 @@ function test() {
 // hoisting makes var undefined
 // hoisting in temporary deadzone (in scope but not declared), const / let,
 // raises an error
+
+// Q: output?
+
+var x = 21;
+let foo = function () {
+  console.log(x);
+  let x = 20;
+};
+foo();
+
+//A:
+// undefined (hoisting)
+
+// Q: output?
+
+let x = 21;
+let foo = function () {
+  console.log(x);
+  var x = 20;
+};
+foo();
+
+//A:
+// undefined (hoisting)
+
+// Q: output?
+
+const x = 21;
+let foo = function () {
+  console.log(x);
+  var x = 20;
+};
+foo();
+
+//A:
+// undefined (hoisting)
+
+// Q: output?
+
+let x = 21;
+let foo = function () {
+  console.log(x);
+  const x = 20;
+};
+foo();
+
+//A: code does not compile
+
+// Q: output?
+
+var x = 21;
+let foo = function () {
+  console.log(x);
+  const x = 20;
+};
+foo();
+
+//A: code does not compile
